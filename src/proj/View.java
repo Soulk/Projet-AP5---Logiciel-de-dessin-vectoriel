@@ -41,6 +41,10 @@ public class View extends JPanel implements Observer {
 		jc.addItem("-choisir couleur-");
 		jc.addItem("Bleu");
 		jc.addItem("Rouge");
+		jc.addItem("Rose");
+		jc.addItem("Noir");
+		jc.addItem("Vert");
+		jc.addItem("Jaune");
 		liste.add(jc); // indice 0 jcombobox couleur
 		add(jc);
 
@@ -50,6 +54,7 @@ public class View extends JPanel implements Observer {
 		jc.addItem("Rond");
 		jc.addItem("Carre");
 		jc.addItem("Oval");
+		jc.addItem("Ligne");
 		liste.add(jc); // indice 1 jcombobox forme
 		add(jc);
 

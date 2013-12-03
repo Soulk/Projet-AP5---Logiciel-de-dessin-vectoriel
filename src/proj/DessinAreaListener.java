@@ -16,49 +16,54 @@ public class DessinAreaListener implements MouseListener {
 	}
 
 	public void mouseClicked(MouseEvent a) {
-		// System.out.println(a.getLocationOnScreen().getX() + " " +
-		// a.getLocationOnScreen().getY());
+		System.out.println(a.getSource().getClass());
 
 	}
 
 	public void mouseEntered(MouseEvent a) {
-
+		
 	}
 
 	public void mouseExited(MouseEvent a) {
-
 	}
 
 	public void mousePressed(MouseEvent a) {
-		this.pDepart = new Point(a.getX(),a.getY());
+		this.pDepart = new Point(a.getX(), a.getY());
 	}
 
 	public void mouseReleased(MouseEvent a) {
-		this.pArrive = new Point(a.getX(),a.getY());
-		if (!((JComboBox) view.getList().get(0)).getSelectedItem()
-				.equals("-choisir couleur-")
+		this.pArrive = new Point(a.getX(), a.getY());
+		if (!((JComboBox) view.getList().get(0)).getSelectedItem().equals(
+				"-choisir couleur-")
 				&& !((JComboBox) view.getList().get(1)).getSelectedItem()
 						.equals("-choisir forme-")) {
-			Couleur c = new Couleur( (String) ((JComboBox) view.getList().get(0)).getSelectedItem());
+			Couleur c = new Couleur(
+					(String) ((JComboBox) view.getList().get(0))
+							.getSelectedItem());
 			controler();
-			view.setFormeCouleurPoint((String) ((JComboBox) view.getList().get(1)).getSelectedItem(), c, this.pDepart, this.pArrive);
+			view.setFormeCouleurPoint(
+					(String) ((JComboBox) view.getList().get(1))
+							.getSelectedItem(), c, this.pDepart, this.pArrive);
 			view.repaint();
 			((Component) view.getList().get(2)).repaint();
 		}
 	}
+
 	public void controler() {
 		int tmp;
-		if(pDepart.getY()>pArrive.getY()) {
-			tmp=(int) pArrive.getY();
-			pArrive.setLocation(pArrive.getX(), pDepart.getY());
-			pDepart.setLocation(pDepart.getX(),tmp);
+		if (!((JComboBox) view.getList().get(1)).getSelectedItem().equals(
+				"Ligne")) {
+			if (pDepart.getY() > pArrive.getY()) {
+				tmp = (int) pArrive.getY();
+				pArrive.setLocation(pArrive.getX(), pDepart.getY());
+				pDepart.setLocation(pDepart.getX(), tmp);
+			}
+			if (pDepart.getX() > pArrive.getX()) {
+				tmp = (int) pArrive.getX();
+				pArrive.setLocation(pDepart.getX(), pArrive.getY());
+				pDepart.setLocation(tmp, pDepart.getY());
+			}
 		}
-		if(pDepart.getX()>pArrive.getX()) {
-			tmp=(int) pArrive.getX();
-			pArrive.setLocation(pDepart.getX(), pArrive.getY());
-			pDepart.setLocation(tmp,pDepart.getY());
-		}
-		
- 	}
+	}
 
 }
