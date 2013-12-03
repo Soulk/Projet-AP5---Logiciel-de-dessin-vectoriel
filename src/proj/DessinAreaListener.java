@@ -30,11 +30,11 @@ public class DessinAreaListener implements MouseListener {
 	}
 
 	public void mousePressed(MouseEvent a) {
-		this.pDepart = new Point(a.getLocationOnScreen());
+		this.pDepart = new Point(a.getX(),a.getY());
 	}
 
 	public void mouseReleased(MouseEvent a) {
-		this.pArrive = new Point(a.getLocationOnScreen());
+		this.pArrive = new Point(a.getX(),a.getY());
 		if (!((JComboBox) view.getList().get(0)).getSelectedItem()
 				.equals("-choisir couleur-")
 				&& !((JComboBox) view.getList().get(1)).getSelectedItem()

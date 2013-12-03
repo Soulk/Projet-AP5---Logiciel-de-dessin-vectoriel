@@ -46,8 +46,10 @@ public class View extends JPanel implements Observer {
 
 		jc = new JComboBox<String>();
 		jc.addItem("-choisir forme-");
-		jc.addItem("Carre");
+		jc.addItem("Rectangle");
 		jc.addItem("Rond");
+		jc.addItem("Carre");
+		jc.addItem("Oval");
 		liste.add(jc); // indice 1 jcombobox forme
 		add(jc);
 
