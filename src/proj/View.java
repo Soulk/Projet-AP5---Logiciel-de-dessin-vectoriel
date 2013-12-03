@@ -14,27 +14,27 @@ import javax.swing.JPanel;
 public class View extends JPanel implements Observer{
 	Model m;
 	JFrame f1;
-	JComboBox jc;
+	JComboBox<String> jc;
 	JPanel jp;
-	ArrayList<JComboBox> liste;
+	ArrayList<JComboBox<String>> liste;
 	public View(Model m) {
 		this.m=m;
 		setPreferredSize(new Dimension(500,450));
 		//setLayout(new GridLayout(2,1));
-		liste = new ArrayList();
+		liste = new ArrayList<JComboBox<String>>();
 		jp = new JPanel();
 		jp.addMouseListener(new DessinAreaListener(this));
 		jp.setPreferredSize(new Dimension(500,400));
 		jp.add(new JButton("blabla"));
 		
-		jc = new JComboBox();
+		jc = new JComboBox<String>();
 		jc.addItem("-choisir couleur-");
 		jc.addItem("Bleu");
 		jc.addItem("Rouge");
 		liste.add(jc); // indice 0 jcombobox couleur
 		add(jc);
 		
-		jc = new JComboBox();
+		jc = new JComboBox<String>();
 		jc.addItem("-choisir forme-");
 		jc.addItem("Carre");
 		jc.addItem("Rond");
@@ -49,7 +49,10 @@ public class View extends JPanel implements Observer{
 		//f1.setPreferredSize(new Dimension(900,900));
 		f1.setVisible(true);
 	}
-	
+
+	public ArrayList<JComboBox<String>> getList() {
+		return liste;
+	}
 	public void update(Observable arg0, Object arg1) {
 		
 	}
@@ -58,7 +61,4 @@ public class View extends JPanel implements Observer{
 		View v = new View(null);
 	}
 
-	public ArrayList<JComboBox> getList() {
-		return liste;
-	}
 }
